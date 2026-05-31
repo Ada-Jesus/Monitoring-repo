@@ -12,12 +12,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install Prometheus tools
+      - name: Install Promtool
         run: |
-          wget https://github.com/prometheus/prometheus/releases/latest/download/prometheus-*.linux-amd64.tar.gz
-          tar -xzf prometheus-*.tar.gz
-          sudo cp */promtool /usr/local/bin/
-
+          wget https://github.com/prometheus/prometheus/releases/download/v3.11.3/prometheus-3.11.3.linux-amd64.tar.gz
+          tar -xzf prometheus-3.11.3.linux-amd64.tar.gz
+          sudo cp prometheus-3.11.3.linux-amd64/promtool /usr/local/bin/      
+      
       - name: Validate Prometheus config
         run: |
           promtool check config prometheus/prometheus.yml
