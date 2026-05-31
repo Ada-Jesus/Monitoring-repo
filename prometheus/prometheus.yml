@@ -18,4 +18,4 @@ alerting:
         - targets:
             - localhost:9093
 rule_files:
-  - "prometheus/alert_rules.yml" 
+  - "alert_rules.yml" 
