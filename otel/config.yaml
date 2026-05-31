@@ -1,0 +1,21 @@
+receivers:
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'node'
+          static_configs:
+            - targets: ['44.193.78.245:9100']
+
+processors:
+  batch:
+
+exporters:
+  debug:
+
+service:
+  pipelines:
+    metrics:
+      receivers: [prometheus]
+      processors: [batch]
+      exporters: [debug]
+
